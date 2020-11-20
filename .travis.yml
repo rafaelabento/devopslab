@@ -15,6 +15,7 @@ script:
 
 # Definir o Deploy no Heroku
 deploy:
+  strategy: api
   provider: heroku
   api_key: $HEROKU_API_KEY
   edge: true 
@@ -22,6 +23,9 @@ deploy:
   on:
       branch: main
 
+#ignora arquivos no TravisCi
+dist: xenial
+os: linux
 
 
 
