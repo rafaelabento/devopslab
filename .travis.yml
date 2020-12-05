@@ -15,7 +15,13 @@ addons:
 # Instalação de Módulos que são necessários para a Aplicação.                                                                                                                                            
 install:                                                                                                                                                                                                 
   - pip install flask
-
+   
+# Instalação de Módulos que são necessários para a Aplicação.                                                                     
+install:     
+  - pip install flask flask-wtf coverage
+    
+    
+    
 # Defini o script de Teste que deve rodar toda vez que o código for alterado.                                                                                                                            
 script:                                                                                                                                                                                                  
  - python -m unittest -v test || travis_terminate 1;
@@ -41,10 +47,3 @@ deploy:
 dist: xenial
 os: linux
 
-
-install:                                                                                                                                                                                                                                                                                    
-  - pip install flask flask-wtf
-
-# Instalação de Módulos que são necessários para a Aplicação.                                                                                     
-install:     
-  - pip install flask flask-wtf coverage
