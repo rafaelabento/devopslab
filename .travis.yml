@@ -36,7 +36,8 @@ dist: xenial
 os: linux
 
 
-
+install:                                                                                                                                                                                                                                                                                    
+  - pip install flask flask-wtf
 
 
 
