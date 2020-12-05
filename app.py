@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_wtf.csrf import CSRFProtect
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 csrf = CSRFProtect(app)
  
@@ -9,5 +9,5 @@ csrf = CSRFProtect(app)
 def pagina_inicial():
    return "Laboratório Pipeline DevOps"                                                                                                                           
  
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
