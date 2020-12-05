@@ -20,38 +20,23 @@ jobs:
         - coverage run test.py || travis_terminate 1;
         - coverage report app.py || travis_terminate 1;
         - coverage xml app.py || travis_terminate 1;
+        
+ script:
+        - sonar-scanner || travis_terminate 1;
+      name: "Testes de Qualidade e Seguranca"
+      addons:
+        sonarcloud:
+          organization: rafaelabento1
+          token: ${SONAR_TOKEN}
 
- #Definir o Deploy no Heroku
-deploy:
-  strategy: api
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  edge: true 
-  app: devopslab-rafaela
-  on:
-      branch: main
-#ignora arquivos no TravisCi
-dist: xenial
-os: linux 
-
-addons:
-   sonarcloud:
-    organization: rafaelabento1
-    token: ${SONAR_TOKEN}    
-                                                                                                                                                                       
-                                                                                                                                                                                                 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- stage: Deploy
+      script: skip
+      # Definir o Deploy no Heroku
+      deploy:
+        provider: heroku
+        strategy: api
+        api_key: $HEROKU_API_KEY
+        edge: true
+        app: devopslab-rafaela
+        on:
+          branch: main
