@@ -4,18 +4,18 @@ language: python
 # Versão que a aplicação suporta.                                                                                                                                                                        
 python:                                                                                                                                                                                                  
  - "3.7.9"
-                                                                                                                                                                                                     
+                                                                                                                                                                                         
 # Instalação de Módulos que são necessários para a Aplicação.                                                                                                                                            
-install:                                                                                                                                                                                                 
-  - pip install flask-wtf coverage
+install:   
+  - pip install flask-wtf coverage flask
 
  # Defini o script de Teste que deve rodar toda vez que o código for alterado.                                                                                      
- script:
+script:
   - coverage run test.py || travis_terminate 1;
   - coverage report app.py || travis_terminate 1;
   - coverage xml app.py || travis_terminate 1;
   - sonar-scanner || travis_terminate 1;   
-  
+
  #Definir o Deploy no Heroku
 deploy:
   strategy: api
