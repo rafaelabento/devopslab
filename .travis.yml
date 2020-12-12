@@ -61,7 +61,7 @@ jobs:
     - stage: Testes-prod
       name: "Testes no ambiente de producao"
       script: 
-        - curl hhttps://devopslab-rafaela.herokuapp.com/
+        - curl https://devopslab-rafaela.herokuapp.com/
 
 
 notifications:
