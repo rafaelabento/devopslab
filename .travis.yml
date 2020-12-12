@@ -40,3 +40,6 @@ jobs:
         app: devopslab-rafaela
         on:
           branch: main
+
+notifications:
+  slack: devopstoolsgroup:iv2dYfbdjUFYaKWSD52DL8z6
