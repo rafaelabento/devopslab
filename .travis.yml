@@ -29,7 +29,24 @@ jobs:
           organization: rafaelabento1
           token: ${SONAR_TOKEN}
 
-    - stage: Deploy
+    - stage: Deploy-stg
+      script: skip
+      # Definir o Deploy no Heroku
+      deploy:
+        provider: heroku
+        strategy: api
+        api_key: $HEROKU_API_KEY
+        edge: true
+        app: devopslab-rafaela-stg
+        on:
+          branch: main
+
+    - stage: Testes-stg
+      name: "Testes no ambiente de stage"
+      script: 
+        - curl https://devopslab-rafaela-stg.herokuapp.com 
+
+    - stage: Deploy-prod
       script: skip
       # Definir o Deploy no Heroku
       deploy:
@@ -40,6 +57,12 @@ jobs:
         app: devopslab-rafaela
         on:
           branch: main
+          
+ - stage: Testes-prod
+      name: "Testes no ambiente de producao"
+      script: 
+        - curl https://devopslab-rafaela.herokuapp.com 
+
 
 notifications:
  slack:
