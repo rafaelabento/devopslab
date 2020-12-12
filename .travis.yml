@@ -44,7 +44,7 @@ jobs:
     - stage: Testes-stg
       name: "Testes no ambiente de stage"
       script: 
-        - curl https://devopslab-rafaela-stg.herokuapp.com 
+        - curl https://devopslab-rafaela-stg.herokuapp.com/
 
     - stage: Deploy-prod
       script: skip
@@ -61,7 +61,7 @@ jobs:
  - stage: Testes-prod
       name: "Testes no ambiente de producao"
       script: 
-        - curl https://devopslab-rafaela.herokuapp.com 
+        - curl hhttps://devopslab-rafaela.herokuapp.com/
 
 
 notifications:
