@@ -58,7 +58,7 @@ jobs:
         on:
           branch: main
           
- - stage: Testes-prod
+    - stage: Testes-prod
       name: "Testes no ambiente de producao"
       script: 
         - curl hhttps://devopslab-rafaela.herokuapp.com/
